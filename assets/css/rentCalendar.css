@@ -1,0 +1,61 @@
+.row::before,
+.row:after {
+    content: " ";
+    display: table;
+}
+
+.row::after {
+    clear: both;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-50 {
+    float: left;
+    width: 50%;
+
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.input-group {
+    display: table;
+    border-collapse: separate;
+    position: relative;
+}
+
+.input-row {
+    width:100%;
+    display: table-row;
+}
+
+.input-group select,
+.input-group input {
+    display: table-cell;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    position: relative
+}
+
+.input-group-addon {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.add-row-btn,
+.remove-row-btn {
+    width: 50px;
+}
+
+.has-error {
+    color: #f03434;
+}
