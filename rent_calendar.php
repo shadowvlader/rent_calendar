@@ -34,8 +34,6 @@ $config->addItem('plugin_categories_url', home_url('/wp-admin/admin.php?page='.$
 $config->addItem('plugin_shortcode_url', home_url('/wp-admin/admin.php?page='.$config->getItem('plugin_shortcode_id')));
 $config->addItem('plugin_reservations_url', home_url('/wp-admin/admin.php?page='.$config->getItem('plugin_reservations_id')));
 
-$config->addItem('plugin_form_handler_url', home_url('/wp-content/plugins/'.$config->getItem('plugin_id').'/form-handler.php'));
-
 $config->addItem('plugin_name', 'Rent Calendar');
 
 /**
@@ -60,12 +58,12 @@ add_shortcode('reservation', array('rentCalendarShortcode', 'reservation'));
 add_shortcode('reservation-button', array('rentCalendarShortcode', 'reservationButton'));
 
 /**
- * Create table for rent calendar on plugin activation
+ * Create tables for rent calendar on plugin activation
  */
 register_activation_hook(__FILE__, array('rentCalendarAdmin', 'pluginInstall'));
 
 /**
- * Delete table for rent calendar on plugin activation
+ * Delete tables for rent calendar on plugin activation
  */
 register_deactivation_hook(__FILE__, array('rentCalendarAdmin', 'pluginRemove'));
     

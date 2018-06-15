@@ -2,8 +2,6 @@
 /**
  * Shortcode class
  *
- * usage:
- * add_shortcode('your_shortcode_name', array('HCCoder_PayPalShortcode', 'frontendIndex'));
  */
 if ( ! class_exists('rentCalendarShortcode') ) {
 

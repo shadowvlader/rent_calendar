@@ -113,7 +113,11 @@ if(!$success):
 
 	<?php $addClass = isset($errors['products'])?"has-error":""; ?>
     <?php if(isset($options['lock']) && $options['lock'] == '1' && isset($options['products']) && !empty($options['products'])): ?>
-        <?php foreach (explode(",", $options['products']) as $productToSelect): ?>
+        <?php 
+            if(is_array($options['products'])) $productsToSelect = $options['products'];
+            else $productsToSelect = explode(",", $options['products']);
+        ?>
+        <?php foreach ($productsToSelect as $productToSelect): ?>
             <input type="hidden" name="products[]" value="<?php echo $productToSelect; ?>">
         <?php endforeach; ?>
     <?php else: ?>
@@ -165,7 +169,6 @@ if(!$success):
 
     function init_date_listeners(){
         pickupPicker.on("select", function (data) {
-            console.log(data);
             $("input[data-beatpicker-id=returnPicker]").data('beatpicker-disable', "{from:["+data.dateObj.getFullYear()+","+(data.dateObj.getMonth()+1)+","+data.dateObj.getDate()+"],to:'<'}");
 
             if(returnPicker.getSelectedStartDate() === null || returnPicker.getSelectedStartDate().getTime() < data.dataObj.getTime())

@@ -19,7 +19,7 @@
     </p>
   
     <p>
-        If you received a reservation, continue to <a href="<?php echo $config->getItem('plugin_history_url'); ?>" title="Rent Calendar - Reservations">Reservations</a> page.
+        If you received a reservation, continue to <a href="<?php echo $config->getItem('plugin_reservations_url'); ?>" title="Rent Calendar - Reservations">Reservations</a> page.
     </p>
 
     <p>

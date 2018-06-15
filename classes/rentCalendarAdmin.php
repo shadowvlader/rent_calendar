@@ -26,13 +26,13 @@ if ( ! class_exists('rentCalendarAdmin') ) {
         $captcha = FALSE;
         if ( isset($_POST['captcha']) && in_array($_POST['captcha'], $captcha_values) ) {
           update_option('reservation_captcha', $_POST['captcha']);
-	      $captcha = TRUE;
+	      	$captcha = TRUE;
           $config_saved = TRUE;
         }
 
         if($captcha){
-			update_option("reservation_captcha_site_key", $_POST['captcha_site_key']);
-			update_option("reservation_captcha_secret_key", $_POST['captcha_secret_key']);
+					update_option("reservation_captcha_site_key", $_POST['captcha_site_key']);
+					update_option("reservation_captcha_secret_key", $_POST['captcha_secret_key']);
         }
 
         if (isset($_POST['price_method'])) {
@@ -113,19 +113,17 @@ if ( ! class_exists('rentCalendarAdmin') ) {
 		    }
 	    }
 
-	    $wpdb->show_errors();
-
 	    if(isset($_POST['new-product'])){
-			if(self::validateFormInput('name') && self::validateFormInput('price') && self::validateFormInput('category')){
-				$wpdb->insert($wpdb->prefix."rent_calendar_products", [
-					'name' => $_POST['name'],
-					'price' => $_POST['price'],
-					'category' => $_POST['category']
-				]);
-				$productActionResponse = self::generateActionResponse(true, "Product successfully added");
-			} else {
-				$productActionResponse = self::generateActionResponse(false,"Product Name, Price and Category must be provided!");
-			}
+				if(self::validateFormInput('name') && self::validateFormInput('price') && self::validateFormInput('category')){
+					$wpdb->insert($wpdb->prefix."rent_calendar_products", [
+						'name' => $_POST['name'],
+						'price' => $_POST['price'],
+						'category' => $_POST['category']
+					]);
+					$productActionResponse = self::generateActionResponse(true, "Product successfully added");
+				} else {
+					$productActionResponse = self::generateActionResponse(false,"Product Name, Price and Category must be provided!");
+				}
 	    }
 
 	    if(isset($_POST['save-product'])){
@@ -223,7 +221,7 @@ if ( ! class_exists('rentCalendarAdmin') ) {
     }
 
     /**
-     * Delete table for rent calendar
+     * Delete tables for rent calendar
      */
     public static function pluginRemove() {
       global $wpdb;
@@ -234,7 +232,7 @@ if ( ! class_exists('rentCalendarAdmin') ) {
     }
     
     /**
-     * Create table for rent calendar
+     * Create tables for rent calendar
      */
     public static function pluginInstall() {
       global $wpdb;
